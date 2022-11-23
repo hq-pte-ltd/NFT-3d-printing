@@ -39,6 +39,7 @@ export const CollectionFilter: React.FC<CollectionFilterProps> = ({
   // showAllFilters,
   search,
 }) => {
+  const [sortName, setSortName] = useState("Highlighted Projects");
   const [options, setOptions] = useState<NftCollection[]>([]);
   const [offset, setOffset] = useState<number>(0);
   const [loading, setLoading] = useState<LoadStatus>(LoadStatus.ToLoad);
@@ -51,6 +52,12 @@ export const CollectionFilter: React.FC<CollectionFilterProps> = ({
   if (shopId !== previousShopId) {
     setPreviousShopId(shopId);
     setOffset(0);
+  }
+
+  const handleClick = async (filter:CollectionFilterType)=>{
+   
+    onChange(filter, "manual");
+   
   }
 
   const onSearch = useCallback((keyword: string) => {
@@ -131,8 +138,11 @@ export const CollectionFilter: React.FC<CollectionFilterProps> = ({
                     </li>
                 </ul>
       </div> */}
-        <div className="collapse navbar-collapse d-flex justify-content-center" id="navmenu">
-        <ul className="navbar-nav text-uppercase">
+        <div className="dropdown d-flex justify-content-center" id="navmenu">
+        <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+    Sort by: {sortName}
+  </button>
+        <ul className="dropdown-menu text-uppercase" aria-labelledby="dropdownMenuButton1">
         {filteredList.map((filter) => {
           return (
             <>
@@ -140,12 +150,12 @@ export const CollectionFilter: React.FC<CollectionFilterProps> = ({
                 key={filter.name}
                 className={
                   selectedManual?.collectionId === filter.collectionId
-                    ? "nav-item ms-3 selected"
-                    : "nav-item ms-3"
-                }
-                onClick={onChange(filter, "manual")}
+                    ? "dropdown-item ms-3 selected"
+                    : "dropdown-item ms-3"
+                  }
+                  onClick={()=>handleClick(filter).then(()=> setSortName(filter.name))}
               >
-              <p className="nav-item-pipehome px-4 pt-4">
+              <p className="dropdown-item px-4 pt-4">
               {filter.name}   {filter.qubeClaims}
               </p>
               </li>

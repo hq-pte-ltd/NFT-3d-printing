@@ -85,7 +85,7 @@ const FILTERS = [
 
 const DesContainer = styled.div`
   width: 100%;
-
+  margin-bottom: 150px;
   .candy-filter {
     color: #fff;
 
@@ -93,9 +93,5 @@ const DesContainer = styled.div`
       color: #7522f5;
     }
 
-    .candy-search input {
-      padding: 10px 4px 10px 24px;
-      width: 100%;
-    }
   }
 `;

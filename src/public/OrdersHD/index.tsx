@@ -261,39 +261,42 @@ export const OrdersHD: React.FC<OrdersProps> = ({
               selectedManual={collectionFilter}
               shopId={selectedShop?.candyShopAddress || shopFilter?.shopId}
             />
-          )}
-          {search && (
-            <Search onSearch={onSearchNft} placeholder="Search NFTs" />
-          )}
-          {/* <nav className="candy-orders-filter menu2 text-uppercase pb-3 pt-3"> */}
-          <nav className="bg-dark text-white navbar navbar-expand-lg navbar-light mb-3 rounded">
-            <div className="container">
-             
-            {Boolean(filters) && (
-              <CollectionFilterComponent
-                onChange={onChangeCollection}
-                selected={selectedCollection}
-                candyShop={candyShop}
-                filters={filters}
-                selectedManual={collectionFilter}
-                shopId={selectedShop?.candyShopAddress || shopFilter?.shopId}
-                // showAllFilters={showAll}
-                search={filterSearch}
-              />
             )}
-            {Boolean(shopFilters) === true && (
-              <ShopFilterComponent
-                onChange={onChangeShop}
-                candyShop={candyShop}
-                selected={selectedShop}
-                filters={shopFilters}
-                selectedManual={shopFilter}
-                showAllFilters={showAll}
-                search={filterSearch}
-              />
+            <div className="pb-3 pt-5 justify-content-center d-flex">
+
+            {search && (
+              <Search onSearch={onSearchNft} placeholder="Search NFTs..." />
             )}
+            {/* <nav className="candy-orders-filter menu2 text-uppercase pb-3 pt-3"> */}
+            
+              <div className="container p-0 m-0">
+              
+              {Boolean(filters) && (
+                <CollectionFilterComponent
+                  onChange={onChangeCollection}
+                  selected={selectedCollection}
+                  candyShop={candyShop}
+                  filters={filters}
+                  selectedManual={collectionFilter}
+                  shopId={selectedShop?.candyShopAddress || shopFilter?.shopId}
+                  // showAllFilters={showAll}
+                  search={filterSearch}
+                />
+              )}
+              {Boolean(shopFilters) === true && (
+                <ShopFilterComponent
+                  onChange={onChangeShop}
+                  candyShop={candyShop}
+                  selected={selectedShop}
+                  filters={shopFilters}
+                  selectedManual={shopFilter}
+                  showAllFilters={showAll}
+                  search={filterSearch}
+                />
+              )}
+              </div>
             </div>
-          </nav>
+          
           <div className="candy-orders-content">
             {loading ? (
               <LoadingSkeleton />
@@ -320,7 +323,7 @@ export const OrdersHD: React.FC<OrdersProps> = ({
               onSelectItem={(item) => setSortedByOption(item)}
               defaultValue={SORT_OPTIONS[0]}
             />
-            <Search onSearch={onSearchNft} placeholder="Search NFTs" />
+            <Search onSearch={onSearchNft} placeholder="Search NFTs..." />
           </div>
           {loading ? (
             <LoadingSkeleton />
