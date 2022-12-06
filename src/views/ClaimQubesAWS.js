@@ -8,7 +8,6 @@ import raffleImg2 from '../img/ReworkRaf.png';
 import raffleImgmobile from '../img/Pablo_Residence_2.png';
 import ClaimQubesImg from '../img/ClaimQubes.png';
 import { NavLink } from 'react-router-dom';
-import Navigation from '../components/NavBar/Navigation';
 
 class ClaimQubesAWS extends Component {
   state = {

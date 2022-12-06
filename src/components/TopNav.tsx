@@ -11,7 +11,6 @@ import Popper from "@material-ui/core/Popper";
 import styled from "styled-components";
 import { RouteName } from "../constant/routeNames";
 import MobileNavigation from "./NavBar/MobileNavigation";
-import Navigation from "./NavBar/Navigation";
 
 interface TopNavProps {
   showCurrencyToggle?: boolean;
@@ -94,166 +93,174 @@ const TopNav: React.FC<TopNavProps> = ({ showCurrencyToggle = false }) => {
 
   const [extendNavbar, setExtendNavbar] = useState(false);
   return (
-    <NavbarContainer>
-      <NavbarInnerContainer>
-        <LeftContainer>
-          <Logo>
-            <Link to={RouteName.HomePage}>
-              <img alt="" src="/Rework-Logo.svg" />
-            </Link>
-          </Logo>
-        </LeftContainer>
+    <>
+      <NavbarContainer>
+        <NavbarInnerContainer>
+          <LeftContainer>
+            <Logo>
+              <Link to={RouteName.HomePage}>
+                <img alt="" src="/Rework-Logo.svg" />
+              </Link>
+            </Logo>
+          </LeftContainer>
 
-        <CenterContainer>
-          <Menu>
-            <DropdownAnchor
-              ref={anchorRef}
-              onClick={handleToggle}
-              className={
-                DROP_DOWN_MENU.some((item) => item.url === pathname)
-                  ? "active"
-                  : ""
-              }
-            >
-              Collection <i className="icon-down fas fa-chevron-down" />
-              <Popper
-                open={open}
-                anchorEl={anchorRef.current}
-                role={undefined}
-                transition
-                disablePortal
+          <CenterContainer>
+            <Menu>
+              <DropdownAnchor
+                ref={anchorRef}
+                onClick={handleToggle}
+                className={
+                  DROP_DOWN_MENU.some((item) => item.url === pathname)
+                    ? "active"
+                    : ""
+                }
               >
-                <Paper>
-                  <ClickAwayListener onClickAway={handleClose}>
-                    <MenuList
-                      autoFocusItem={open}
-                      onKeyDown={handleListKeyDown}
-                    >
-                      {DROP_DOWN_MENU.map((item) => (
-                        <MenuItem
-                          className={
-                            item.url === pathname ? "active active-submenu" : ""
-                          }
-                          key={item.url}
-                        >
-                          <Link to={item.url}>{item.name}</Link>
+                Collection <i className="icon-down fas fa-chevron-down" />
+                <Popper
+                  open={open}
+                  anchorEl={anchorRef.current}
+                  role={undefined}
+                  transition
+                  disablePortal
+                >
+                  <Paper>
+                    <ClickAwayListener onClickAway={handleClose}>
+                      <MenuList
+                        autoFocusItem={open}
+                        onKeyDown={handleListKeyDown}
+                      >
+                        {DROP_DOWN_MENU.map((item) => (
+                          <MenuItem
+                            className={
+                              item.url === pathname
+                                ? "active active-submenu"
+                                : ""
+                            }
+                            key={item.url}
+                          >
+                            <Link to={item.url}>{item.name}</Link>
+                          </MenuItem>
+                        ))}
+                      </MenuList>
+                    </ClickAwayListener>
+                  </Paper>
+                </Popper>
+              </DropdownAnchor>
+              {ROUTES.map((item) => (
+                <li
+                  key={item.url}
+                  className={pathname === item.url ? "active" : ""}
+                >
+                  <Link to={item.url}>{item.name}</Link>
+                </li>
+              ))}
+              <DropdownAnchor_Sub
+                ref={anchorRef_sub}
+                onClick={handleToggle_sub}
+              >
+                Other Products <i className="icon-down fas fa-chevron-down" />
+                <Popper
+                  open={open_sub}
+                  anchorEl={anchorRef_sub.current}
+                  role={undefined}
+                  transition
+                  disablePortal
+                >
+                  <Paper>
+                    <ClickAwayListener onClickAway={handleClose_sub}>
+                      <MenuList
+                        autoFocusItem={open_sub}
+                        onKeyDown={handleListKeyDown_sub}
+                      >
+                        <MenuItem>
+                          <a
+                            href="https://www.homeqube.io/"
+                            key={"homeqube"}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="qube-text"
+                          >
+                            HOMEQUBE.IO{" "}
+                            <i className="fas fa-solid fa-arrow-right mx-2" />
+                          </a>
                         </MenuItem>
-                      ))}
-                    </MenuList>
-                  </ClickAwayListener>
-                </Paper>
-              </Popper>
-            </DropdownAnchor>
-            {ROUTES.map((item) => (
-              <li
-                key={item.url}
-                className={pathname === item.url ? "active" : ""}
-              >
-                <Link to={item.url}>{item.name}</Link>
-              </li>
-            ))}
-            <DropdownAnchor_Sub ref={anchorRef_sub} onClick={handleToggle_sub}>
-              Other Products <i className="icon-down fas fa-chevron-down" />
-              <Popper
-                open={open_sub}
-                anchorEl={anchorRef_sub.current}
-                role={undefined}
-                transition
-                disablePortal
-              >
-                <Paper>
-                  <ClickAwayListener onClickAway={handleClose_sub}>
-                    <MenuList
-                      autoFocusItem={open_sub}
-                      onKeyDown={handleListKeyDown_sub}
-                    >
-                      <MenuItem>
-                        <a
-                          href="https://www.homeqube.io/"
-                          key={"homeqube"}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="qube-text"
-                        >
-                          HOMEQUBE.IO{" "}
-                          <i className="fas fa-solid fa-arrow-right mx-2" />
-                        </a>
-                      </MenuItem>
-                      <MenuItem>
-                        <a
-                          href="https://www.homeqube.com/"
-                          key={"homeqube"}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="qube-text"
-                        >
-                          HOMEQUBE.COM{" "}
-                          <i className="fas fa-solid fa-arrow-right mx-3" />
-                        </a>
-                      </MenuItem>
-                      <MenuItem>
-                        <a
-                          href="https://www.homeqube.ai/"
-                          key={"homeqube"}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="qube-text"
-                        >
-                          HOMEQUBE.AI{" "}
-                          <i className="fas fa-solid fa-arrow-right mx-3" />
-                        </a>
-                      </MenuItem>
-                    </MenuList>
-                  </ClickAwayListener>
-                </Paper>
-              </Popper>
-            </DropdownAnchor_Sub>
-          </Menu>
-        </CenterContainer>
+                        <MenuItem>
+                          <a
+                            href="https://www.homeqube.com/"
+                            key={"homeqube"}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="qube-text"
+                          >
+                            HOMEQUBE.COM{" "}
+                            <i className="fas fa-solid fa-arrow-right mx-3" />
+                          </a>
+                        </MenuItem>
+                        <MenuItem>
+                          <a
+                            href="https://www.homeqube.ai/"
+                            key={"homeqube"}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="qube-text"
+                          >
+                            HOMEQUBE.AI{" "}
+                            <i className="fas fa-solid fa-arrow-right mx-3" />
+                          </a>
+                        </MenuItem>
+                      </MenuList>
+                    </ClickAwayListener>
+                  </Paper>
+                </Popper>
+              </DropdownAnchor_Sub>
+            </Menu>
+          </CenterContainer>
 
-        <RightContainer>
-          {showCurrencyToggle && <CurrencyToggle />}
-          <li>
-            <a
-              href="https://t.me/homeqube"
-              key={"telegram"}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <img src="/telegram2.svg" alt="" />
-            </a>
-            <a
-              href="https://discord.gg/JhQXmjm59e"
-              key={"telegram"}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <img src="/discord2.svg" alt="" className="mx-3" />
-            </a>
-          </li>
-          <Wallet>
-            {wallet ? (
-              <ConnectButton className="wallet-width" />
+          <RightContainer>
+            {showCurrencyToggle && <CurrencyToggle />}
+            <li>
+              <a
+                href="https://t.me/homeqube"
+                key={"telegram"}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img src="/telegram2.svg" alt="" />
+              </a>
+              <a
+                href="https://discord.gg/JhQXmjm59e"
+                key={"telegram"}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img src="/discord2.svg" alt="" className="mx-3" />
+              </a>
+            </li>
+            <Wallet>
+              {wallet ? (
+                <ConnectButton className="wallet-width" />
+              ) : (
+                <ConnectButton className="wallet-width-connect">
+                  Connect Wallet
+                </ConnectButton>
+              )}
+            </Wallet>
+          </RightContainer>
+          <OpenLinksButton
+            onClick={() => {
+              setExtendNavbar(!extendNavbar);
+            }}
+          >
+            {extendNavbar ? (
+              <i className="fas fa fa-solid fa-xmark fa-2xl" />
             ) : (
-              <ConnectButton className="wallet-width-connect">
-                Connect Wallet
-              </ConnectButton>
+              <i className="fas fa fa-solid fa-bars fa-2xl" />
             )}
-          </Wallet>
-        </RightContainer>
-        <OpenLinksButton
-          onClick={() => {
-            setExtendNavbar((curr) => !curr);
-          }}
-        >
-          {extendNavbar ? (
-            <i className="fas fa fa-solid fa-xmark fa-2xl"></i>
-          ) : (
-            <i className="fas fa fa-solid fa-bars fa-2xl" />
-          )}
-        </OpenLinksButton>
-      </NavbarInnerContainer>
-    </NavbarContainer>
+          </OpenLinksButton>
+        </NavbarInnerContainer>
+      </NavbarContainer>
+      <MobileNavigation isOpen={extendNavbar} setIsOpen={setExtendNavbar} />
+    </>
   );
 };
 
@@ -262,7 +269,7 @@ const NavbarContainer = styled.div`
   flex-direction: row;
   background-color: #0a0909;
   backdrop-filter: blur(5px);
-  z-index: 999;
+  z-index: 998;
 `;
 
 const LeftContainer = styled.div`
@@ -303,11 +310,12 @@ const RightContainer = styled.div`
 const OpenLinksButton = styled.button`
   width: 70px;
   height: 30px;
-  margin-top: 5.5%;
+  margin-block: auto;
   margin-right: 5%;
   background: none;
   border: none;
   color: white;
+  z-index: 999;
   @media (min-width: 1100px) {
     display: none;
   }

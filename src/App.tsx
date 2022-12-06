@@ -301,11 +301,10 @@ const App = () => {
                       </Routes>
                     </MainContainer>
                   </ScrollToTop>
-                  
                 </main>
               </CandyShopDataValidator>
               {/* <Footer /> */}
-              <Footer2/>
+              <Footer2 />
             </WalletModalProvider>
           </CurrencyProvider>
         </WalletProvider>
