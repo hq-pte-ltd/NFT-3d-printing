@@ -99,7 +99,7 @@ const TopNav: React.FC<TopNavProps> = ({ showCurrencyToggle = false }) => {
           <LeftContainer>
             <Logo>
               <Link to={RouteName.HomePage}>
-                <img alt="" src="/Rework-Logo_2.svg" />
+                <img alt="" src="/Rework-Logo_3.svg" />
               </Link>
             </Logo>
           </LeftContainer>
