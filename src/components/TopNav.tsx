@@ -232,6 +232,7 @@ const TopNav: React.FC<TopNavProps> = ({ showCurrencyToggle = false }) => {
                 key={"telegram"}
                 target="_blank"
                 rel="noreferrer"
+                hidden
               >
                 <img src="/discord2.svg" alt="" className="mx-3" />
               </a>
