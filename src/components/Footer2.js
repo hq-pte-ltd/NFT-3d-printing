@@ -3,6 +3,7 @@ import FooterResponsive from "./Footer2Components/FooterResponsive";
 import FooterWeb from "./Footer2Components/FooterWeb";
 
 function Footer2() {
+  const currentYear = new Date().getFullYear();
   return (
     <>
       <footer className="p-3 bg-black text-white py-5">
@@ -12,7 +13,7 @@ function Footer2() {
         </div>
         <hr />
         <div className="container">
-          <div className="ms-3">@2022 HOMEQUBE PTE. LTD.™</div>
+          <div className="ms-3">@{currentYear} HOMEQUBE PTE. LTD.™</div>
         </div>
       </footer>
     </>

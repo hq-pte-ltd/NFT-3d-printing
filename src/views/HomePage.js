@@ -209,7 +209,7 @@ function HomePage() {
                     Mint your nft
                   </button>
                 </a>
-                <NavLink to="/home-designs" className="a-link">
+                <NavLink to="/home-products" className="a-link">
                   <button
                     className="button1 btn btn-lg rounded-pill"
                     type="button"

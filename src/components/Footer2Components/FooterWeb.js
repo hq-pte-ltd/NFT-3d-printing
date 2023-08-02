@@ -2,7 +2,7 @@ import React from "react";
 import homequbelogo from "../../img/Footer Logo vertical.svg";
 import rightArrow from "../../img/Arrow right.svg";
 import instagram from "../../img/newInsta.svg";
-import twitter from "../../img/newTwitter.svg";
+import twitter from "../../img/TwitterX.png";
 import linkedin from "../../img/newLinked.svg";
 import telegram from "../../img/newTelegram.svg";
 import discord from "../../img/newDiscord.svg";
@@ -13,10 +13,11 @@ function FooterWeb() {
         <div className="d-flex flex-column">
           <div className="footer-headings-cont">
             <div className="d-flex align-items-center">
-              <img src={homequbelogo} alt="" />
-              <span className="text-light io-text-logo align-self-center">.IO</span>
+              {/* <img src={homequbelogo} alt="" />
+              <span className="text-light io-text-logo align-self-center">.IO</span> */}
+              <img alt="" src="/Rework-Logo_3.svg" />
             </div>
-            <span className="text-uppercase text-tag-line-footer align-self-center">Number 1 NFT store comparison is opensea</span>
+            <span className="text-uppercase text-tag-line-footer align-self-center" hidden>Number 1 NFT store comparison is opensea</span>
           </div>
           <div class="container mt-5">
             <div class="align-items-start mb-3 footer-content-container">
@@ -27,10 +28,10 @@ function FooterWeb() {
 
                 <div class=" new-footer-text text-uppercase mb-2">
                   <a
-                    href="https://www.qube.homeqube.com/stakeholders"
+                    href="https://qube.homeqube.com/state-of-play"
                     className="a-no-design"
                   >
-                    StakeHolders
+                    State of play
                   </a>
                 </div>
 
@@ -44,7 +45,7 @@ function FooterWeb() {
                 </div>
               </div>
 
-              <div className="footer-item-cont">
+              <div className="footer-item-cont" hidden>
                 <div class=" new-footer-headline text-uppercase mb-2">
                   Our Products
                 </div>
@@ -91,7 +92,7 @@ function FooterWeb() {
                 </div>
               </div>
 
-              <div className="footer-item-cont">
+              <div className="footer-item-cont" hidden>
                 <div class=" new-footer-headline text-uppercase mb-2">
                   Resources
                 </div>
@@ -146,8 +147,8 @@ function FooterWeb() {
 
               </div>
 
-              <div className="footer-item-cont mb-2">
-                <div class=" new-footer-headline-2 text-uppercase  mb-2">
+              <div className="footer-item-cont mb-2" >
+                <div class=" new-footer-headline-2 text-uppercase  mb-2" hidden>
                   Connect with us
                 </div>
 
@@ -166,7 +167,7 @@ function FooterWeb() {
                       />
                     </a>
                     <a
-                      href="https://twitter.com/homeqube_ai"
+                      href="https://twitter.com/QubeToken"
                       target="_blank"
                       rel="noreferrer noopener"
                       className="a-no-design"
@@ -174,7 +175,7 @@ function FooterWeb() {
                       <img
                         src={twitter}
                         alt=""
-                        className="new-footer-icons me-3"
+                        className="new-footer-icons-twitter me-3"
                       />
                     </a>
                     <a
@@ -206,6 +207,7 @@ function FooterWeb() {
                       target="_blank"
                       rel="noreferrer noopener"
                       className="a-no-design"
+                      hidden
                     >
                       <img
                         src={discord}
@@ -216,19 +218,19 @@ function FooterWeb() {
                   </div>
                 </div>
 
-                <div class=" new-footer-text text-uppercase  mb-2">
+                <div class=" new-footer-text text-uppercase  mb-2" hidden>
                   about@homeqube.com
                 </div>
 
-                <div class="text-nowrap new-footer-text text-uppercase  mb-2">
+                <div class="text-nowrap new-footer-text text-uppercase  mb-2" hidden>
                   Homeqube Pte. Ltd.™
                 </div>
                 
-                <div class=" new-footer-text text-uppercase mb-2">
+                <div class=" new-footer-text text-uppercase mb-2" hidden>
                   Homeqube, Inc.
                 </div>
 
-                <div class=" new-footer-text text-uppercase  mb-2">
+                <div class=" new-footer-text text-uppercase  mb-2" hidden>
                   Homqube Dao, LLC
                 </div>
 

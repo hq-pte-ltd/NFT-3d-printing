@@ -44,12 +44,12 @@ function LandingPage() {
             
           </section>
           <div className="pt-4">
+          <NavLink to="/home-products" className="a-link">
               <button className="button1 btn btn-lg rounded-pill view-collection-btn" type="button">
                 View Collections
                 <img src="/icons8-right-24.png" className="p-1" alt="image" />
               </button>
-            <NavLink to="/home-designs" className="a-link">
-              
+          
             </NavLink>
           </div>
       </section>
