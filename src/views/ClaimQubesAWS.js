@@ -199,7 +199,7 @@ class ClaimQubesAWS extends Component {
                 Lucky winner of A condominium from calma properties inc
               </h3>
               <p className='raffle-sub-title-3 text-light pt-5 text-start m-0'>
-                For the first 1000 NFTs sold, we will give away one brand new
+                For the first 1500 NFTs sold, we will give away one brand new
                 condo in Paranaque, Philippines.
               </p>
               <h4 className='raffle-sub-title-4 pt-5 text-start m-0'>
