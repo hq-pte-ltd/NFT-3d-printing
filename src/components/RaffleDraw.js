@@ -26,7 +26,7 @@ function RaffleDraw() {
               Lucky winner of A condominium from calma properties inc
             </h3>
             <p className="raffle-sub-title-3 text-light pt-5">
-              For the first 1000 NFTs sold, we will give away one brand new
+              For the first 1500 NFTs sold, we will give away one brand new
               condo in
               Paranaque, Philippines.
             </p>
