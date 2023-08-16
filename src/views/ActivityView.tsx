@@ -21,6 +21,6 @@ const DesContainer = styled.div`
   }
 
   a {
-    color: white;
+    color: black;
   }
 `;
