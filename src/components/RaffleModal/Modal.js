@@ -72,7 +72,7 @@ function Modal({ setOpenModal }) {
                   <li>
                     {" "}
                     3. CONTEST PERIOD IS FROM AUGUST 23,2022 UNTIL THE FIRST
-                    1500 NFTS HAS BEEN SOLD.
+                    2000 NFTS HAS BEEN SOLD.
                   </li>
                 </ul>
                 <br />
