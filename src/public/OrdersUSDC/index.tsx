@@ -184,30 +184,30 @@ export const OrdersUSDC: React.FC<OrdersProps> = ({
       item: NftCollection | CollectionFilter | undefined,
       type: "auto" | "manual"
     ) =>
-    () => {
-      onResetLoadingOrders();
-      onResetShopFilter();
-      if (type === "auto") {
-        setSelectedCollection(item as NftCollection);
-      } else {
-        setCollectionFilter(item as CollectionFilter);
-      }
-    };
+      () => {
+        onResetLoadingOrders();
+        onResetShopFilter();
+        if (type === "auto") {
+          setSelectedCollection(item as NftCollection);
+        } else {
+          setCollectionFilter(item as CollectionFilter);
+        }
+      };
 
   const onChangeShop =
     (
       item: ShopFilter | CandyShopResponse | undefined,
       type: "auto" | "manual"
     ) =>
-    () => {
-      onResetLoadingOrders();
-      onResetCollectionFilter();
-      if (type === "auto") {
-        setSelectedShop(item as CandyShopResponse);
-      } else {
-        setShopFilter(item as ShopFilter);
-      }
-    };
+      () => {
+        onResetLoadingOrders();
+        onResetCollectionFilter();
+        if (type === "auto") {
+          setSelectedShop(item as CandyShopResponse);
+        } else {
+          setShopFilter(item as ShopFilter);
+        }
+      };
 
   useEffect(() => {
     if (!loadingMountRef.current) {
@@ -218,7 +218,7 @@ export const OrdersUSDC: React.FC<OrdersProps> = ({
     fetchOrders(0);
   }, [fetchOrders, updateOrderStatus]);
 
-  const emptyView = <Empty description="No orders found" />;
+  const emptyView = <Empty description="UNDER CONSTRUCTION" />;
 
   const infiniteOrderListView = (
     <InfiniteOrderListUSDC

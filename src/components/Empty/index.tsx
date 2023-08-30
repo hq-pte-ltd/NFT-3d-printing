@@ -39,20 +39,20 @@ const ConnectButton = styled(WalletMultiButton)`
 `;
 
 export const Empty: React.FC<EmptyProps> = ({
-  description = "No orders found",
+  description = "UNDER CONSTRUCTION",
 }) => {
   const wallet = useAnchorWallet();
   return (
     <div className="candy-empty-found">
       <div className="">
-        <img src={Nofound} />
+        {/* <img src={Nofound} /> */}
       </div>
       <div className="no-found-subtext">{description}</div>
-      <div className="no-found-subtext-2">
+      {/* <div className="no-found-subtext-2">
         <p>Looks like there's nothing here.</p>
-      </div>
+      </div> */}
       <div className="me-4 pt-3 no-found-wallet">
-        <Wallet>
+        {/* <Wallet>
           {wallet ? (
             <ConnectButton className="wallet-width" />
           ) : (
@@ -60,7 +60,7 @@ export const Empty: React.FC<EmptyProps> = ({
               Connect Wallet
             </ConnectButton>
           )}
-        </Wallet>
+        </Wallet> */}
       </div>
     </div>
   );

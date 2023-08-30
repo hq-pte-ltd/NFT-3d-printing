@@ -205,7 +205,7 @@ export const CreateAuction: React.FC<CreateAuctionProps> = ({
           </button>
         </>
       )}
-      {loadingNft === LoadStatus.Loaded && availableAuctionNfts.length === 0 && <Empty description="No orders found" />}
+      {loadingNft === LoadStatus.Loaded && availableAuctionNfts.length === 0 && <Empty description="UNDER CONSTRUCTION" />}
     </>
   );
 

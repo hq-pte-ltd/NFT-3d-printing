@@ -185,30 +185,30 @@ export const OrdersHD: React.FC<OrdersProps> = ({
       item: NftCollection | CollectionFilter | undefined,
       type: "auto" | "manual"
     ) =>
-    () => {
-      onResetLoadingOrders();
-      onResetShopFilter();
-      if (type === "auto") {
-        setSelectedCollection(item as NftCollection);
-      } else {
-        setCollectionFilter(item as CollectionFilter);
-      }
-    };
+      () => {
+        onResetLoadingOrders();
+        onResetShopFilter();
+        if (type === "auto") {
+          setSelectedCollection(item as NftCollection);
+        } else {
+          setCollectionFilter(item as CollectionFilter);
+        }
+      };
 
   const onChangeShop =
     (
       item: ShopFilter | CandyShopResponse | undefined,
       type: "auto" | "manual"
     ) =>
-    () => {
-      onResetLoadingOrders();
-      onResetCollectionFilter();
-      if (type === "auto") {
-        setSelectedShop(item as CandyShopResponse);
-      } else {
-        setShopFilter(item as ShopFilter);
-      }
-    };
+      () => {
+        onResetLoadingOrders();
+        onResetCollectionFilter();
+        if (type === "auto") {
+          setSelectedShop(item as CandyShopResponse);
+        } else {
+          setShopFilter(item as ShopFilter);
+        }
+      };
 
   useEffect(() => {
     if (!loadingMountRef.current) {
@@ -219,7 +219,7 @@ export const OrdersHD: React.FC<OrdersProps> = ({
     fetchOrders(0);
   }, [fetchOrders, updateOrderStatus]);
 
-  const emptyView = <Empty description="No orders found" />;
+  const emptyView = <Empty description="UNDER CONSTRUCTION" />;
 
   const infiniteOrderListView = (
     <InfiniteOrderList
@@ -263,36 +263,36 @@ export const OrdersHD: React.FC<OrdersProps> = ({
               shopId={selectedShop?.candyShopAddress || shopFilter?.shopId}
             />
           )}
-              
-            {Boolean(filters) && (
-              <CollectionFilterComponent
-                onChange={onChangeCollection}
-                selected={selectedCollection}
-                candyShop={candyShop}
-                filters={filters}
-                selectedManual={collectionFilter}
-                shopId={selectedShop?.candyShopAddress || shopFilter?.shopId}
-                // showAllFilters={showAll}
-                search={filterSearch}
-              />
-            )}
-            {Boolean(shopFilters) === true && (
-              <ShopFilterComponent
-                onChange={onChangeShop}
-                candyShop={candyShop}
-                selected={selectedShop}
-                filters={shopFilters}
-                selectedManual={shopFilter}
-                showAllFilters={showAll}
-                search={filterSearch}
-              />
-            )}
 
-           {search && (
+          {Boolean(filters) && (
+            <CollectionFilterComponent
+              onChange={onChangeCollection}
+              selected={selectedCollection}
+              candyShop={candyShop}
+              filters={filters}
+              selectedManual={collectionFilter}
+              shopId={selectedShop?.candyShopAddress || shopFilter?.shopId}
+              // showAllFilters={showAll}
+              search={filterSearch}
+            />
+          )}
+          {Boolean(shopFilters) === true && (
+            <ShopFilterComponent
+              onChange={onChangeShop}
+              candyShop={candyShop}
+              selected={selectedShop}
+              filters={shopFilters}
+              selectedManual={shopFilter}
+              showAllFilters={showAll}
+              search={filterSearch}
+            />
+          )}
+
+          {search && (
             <Search onSearch={onSearchNft} placeholder="Search NFTs" />
           )}
-            
-          
+
+
           <div className="candy-orders-content">
             {loading ? (
               <LoadingSkeleton />
