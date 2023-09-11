@@ -101,8 +101,21 @@ class ClaimQubesAWS extends Component {
                   sending the token address.
                 </p>
                 <form id='form-contact'>
-                  <div className='form-outline mb-4'>
-                    <label
+                  {/* <div className='form-outline mb-4'> */}
+                  <div className='claim-qubes-tg'>
+                    
+                  
+                    <p className='form-label pt-5 ms-2 claimqubes-subtext' >Claim your qube tokens in our telegram</p>
+                    <a
+                href="https://t.me/homeqube"
+                key={"telegram"}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img src="/telegram2.svg" alt="" />
+              </a>
+              </div>
+                    {/* <label
                       className='form-label pt-5 ms-2'
                       for='form3Example3'
                     >
@@ -136,8 +149,8 @@ class ClaimQubesAWS extends Component {
                           display: 'none',
                         }}
                       ></div>
-                    )}
-                  </div>
+                    )} */}
+                  {/* </div> */}
                   {/* <button
                     className="contact-send-button btn btn-lg rounded-pill"
                     id="sendbtn"
@@ -147,7 +160,7 @@ class ClaimQubesAWS extends Component {
                   >
                     submit
                   </button> */}
-                  <button
+                  {/* <button
                     className='button1 btn btn-lg rounded-pill'
                     type='button'
                     id='sendbtn'
@@ -160,7 +173,7 @@ class ClaimQubesAWS extends Component {
                       className='p-1'
                       alt='image'
                     />
-                  </button>
+                  </button> */}
                 </form>
               </div>
               <img

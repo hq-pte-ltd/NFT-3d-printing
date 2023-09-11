@@ -1050,6 +1050,12 @@ input:not(:disabled) {
   transform: translate(170px, 100px);
 }
 
+.claim-qubes-tg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .image-container-2 {
   background: white;
   width: 80px;
