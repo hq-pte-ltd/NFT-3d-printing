@@ -1,0 +1,35 @@
+name: Build and deploy
+
+on:
+  push:
+    branches:
+      - master
+
+env:
+  REACT_APP_CANDY_SHOP_CREATOR_ADDRESS: ${{ secret.REACT_APP_CANDY_SHOP_CREATOR_ADDRESS }}
+  REACT_APP_CANDY_SHOP_TREASURY_MINT: ${{ secrets.REACT_APP_CANDY_SHOP_TREASURY_MINT }}
+  REACT_APP_CANDY_SHOP_PROGRAM_ID: ${{ secrets.REACT_APP_CANDY_SHOP_PROGRAM_ID }}
+  REACT_APP_SOLANA_NETWORK: ${{ secrets.REACT_APP_SOLANA_NETWORK }}
+  REACT_APP_SOLANA_RPC_HOST: ${{ secrets.REACT_APP_SOLANA_RPC_HOST }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Node.js version
+        uses: actions/setup-node@v1
+          with:
+          node-version: '18.x'
+
+      - name: npm install and build
+        run: |
+          npm install
+          npm run build
+
+      # - name: Upload artifact for deployment job
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: app
+      #     path: .
