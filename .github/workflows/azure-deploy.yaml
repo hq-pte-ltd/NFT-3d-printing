@@ -11,7 +11,7 @@ env:
   REACT_APP_CANDY_SHOP_PROGRAM_ID: ${{ secrets.REACT_APP_CANDY_SHOP_PROGRAM_ID }}
   REACT_APP_SOLANA_NETWORK: ${{ secrets.REACT_APP_SOLANA_NETWORK }}
   REACT_APP_SOLANA_RPC_HOST: ${{ secrets.REACT_APP_SOLANA_RPC_HOST }}
-  CI: ''
+  CI: ""
 
 jobs:
   build:
@@ -30,7 +30,7 @@ jobs:
           npm run build
 
       - run: |
-        zip -r node-app.zip .
+          zip -r node-app.zip .
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
