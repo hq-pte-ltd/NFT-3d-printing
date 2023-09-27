@@ -1,4 +1,0 @@
-{
-  "appService.defaultWebAppToDeploy": "/subscriptions/72775a9f-cc64-494b-8592-a1ee371b1b95/resourceGroups/HQ-Ecommerce/providers/Microsoft.Web/sites/nft-3d-printing",
-  "appService.deploySubpath": "."
-}
