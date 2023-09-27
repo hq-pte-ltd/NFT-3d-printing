@@ -2,8 +2,8 @@ module.exports = {
     apps: [
       {
         name: "nft-3d-printing",
-        script: "./node_modules/next/dist/bin/next",
-        args: "start -p " + (process.env.PORT || 3000),
+        script: "./node_modules/.bin/react-app-rewired",
+        args: "start",
         watch: false,
         autorestart: true,
       },
