@@ -26,7 +26,7 @@ const MobileNavigation = ({isOpen, setIsOpen}) =>{
     const [open_sub, setOpen_sub] = useState(false);
     const anchorRef = useRef(null);
     const anchorRef_sub = useRef(null);
-  
+
     const { pathname } = useLocation();
   
     const handleToggle = () => {

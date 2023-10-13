@@ -11,6 +11,7 @@ import Popper from "@material-ui/core/Popper";
 import styled from "styled-components";
 import { RouteName } from "../constant/routeNames";
 import MobileNavigation from "./NavBar/MobileNavigation";
+import { Button, Grid } from "@material-ui/core";
 
 interface TopNavProps {
   showCurrencyToggle?: boolean;
@@ -18,28 +19,176 @@ interface TopNavProps {
 
 const ROUTES = [{ url: RouteName.ClaimQubes, name: "Claim Qubes" }];
 
-// const OTHER_LAYOUT_ROUTES = [
-//   { url: RouteName.customToken, name: "Custom Token Marketplace" },
-//   { url: RouteName.multipleCollection, name: "Multi Collection Marketplace" },
-//   { url: RouteName.marketplaceWithUrl, name: "Marketplace With URL" },
-//   {
-//     url: RouteName.multipleCurrencyMarketplace,
-//     name: "Multi Currency Marketplace",
-//   },
-//   { url: RouteName.multipleCurrencySell, name: "Multi Currency Sell" },
-// ];
 const DROP_DOWN_MENU = [
   { url: RouteName.HomeDesignFilter, name: "Community Collection" },
   { url: RouteName.MyCollection, name: "My Collection" },
   { url: RouteName.multipleCurrencyMarketplace, name: "Dao Projects" },
-  // { url: RouteName.marketplaceWithUrl, name: "Marketplace With URL" },
-  // {
-  //   url: RouteName.multipleCurrencyMarketplace,
-  //   name: "Multi Currency Marketplace",
-  // },
-  // { url: RouteName.multipleCurrencySell, name: "Multi Currency Sell" },
-  // { url: RouteName.activityView, name: "Marketplace Activity" },
 ];
+
+const BentoNavigation: React.FC = () => {
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const [open, setOpen] = useState(false);
+  return (
+    <>
+      <Button ref={buttonRef} onClick={() => setOpen(true)}>
+        <svg
+          width="58"
+          height="53"
+          viewBox="0 0 148 153"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M74.0003 102C80.7837 102 86.3337 107.737 86.3337 114.75C86.3337 121.763 80.7837 127.5 74.0003 127.5C67.217 127.5 61.667 121.763 61.667 114.75C61.667 107.737 67.217 102 74.0003 102ZM74.0003 63.75C80.7837 63.75 86.3337 69.4875 86.3337 76.5C86.3337 83.5125 80.7837 89.25 74.0003 89.25C67.217 89.25 61.667 83.5125 61.667 76.5C61.667 69.4875 67.217 63.75 74.0003 63.75ZM74.0003 25.5C80.7837 25.5 86.3337 31.2375 86.3337 38.25C86.3337 45.2625 80.7837 51 74.0003 51C67.217 51 61.667 45.2625 61.667 38.25C61.667 31.2375 67.217 25.5 74.0003 25.5ZM37.0003 102C43.7837 102 49.3337 107.737 49.3337 114.75C49.3337 121.763 43.7837 127.5 37.0003 127.5C30.217 127.5 24.667 121.763 24.667 114.75C24.667 107.737 30.217 102 37.0003 102ZM37.0003 63.75C43.7837 63.75 49.3337 69.4875 49.3337 76.5C49.3337 83.5125 43.7837 89.25 37.0003 89.25C30.217 89.25 24.667 83.5125 24.667 76.5C24.667 69.4875 30.217 63.75 37.0003 63.75ZM37.0003 25.5C43.7837 25.5 49.3337 31.2375 49.3337 38.25C49.3337 45.2625 43.7837 51 37.0003 51C30.217 51 24.667 45.2625 24.667 38.25C24.667 31.2375 30.217 25.5 37.0003 25.5ZM111 102C117.784 102 123.334 107.737 123.334 114.75C123.334 121.763 117.784 127.5 111 127.5C104.217 127.5 98.667 121.763 98.667 114.75C98.667 107.737 104.217 102 111 102ZM111 63.75C117.784 63.75 123.334 69.4875 123.334 76.5C123.334 83.5125 117.784 89.25 111 89.25C104.217 89.25 98.667 83.5125 98.667 76.5C98.667 69.4875 104.217 63.75 111 63.75ZM111 25.5C117.784 25.5 123.334 31.2375 123.334 38.25C123.334 45.2625 117.784 51 111 51C104.217 51 98.667 45.2625 98.667 38.25C98.667 31.2375 104.217 25.5 111 25.5Z"
+            fill="white"
+          />
+        </svg>
+      </Button>
+      <Popper
+        open={open}
+        anchorEl={buttonRef.current}
+        role={undefined}
+        transition
+        disablePortal
+      >
+        {({ TransitionProps, placement }) => (
+          <Paper
+            style={{
+              width: "360px",
+              height: "360px",
+              backgroundColor: "rgb(41, 44, 53)",
+              padding: "2rem",
+            }}
+          >
+            <ClickAwayListener onClickAway={() => setOpen(false)}>
+              <Grid container spacing={2}>
+                <Grid item md={4}>
+                  <a
+                    href="https://shop.homeqube.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img
+                      src="./sitenav-shop.png"
+                      style={{
+                        objectFit: "contain",
+                        width: "85px",
+                        height: "90px",
+                      }}
+                      alt="HOMEQUBE Shop"
+                    />
+                  </a>
+                </Grid>
+                <Grid item md={4}>
+                  <a
+                    href="https://nft.homeqube.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img
+                      src="./sitenav-nft.png"
+                      style={{
+                        objectFit: "contain",
+                        width: "85px",
+                        height: "90px",
+                      }}
+                      alt="HOMEQUBE NFT"
+                    />
+                  </a>
+                </Grid>
+                <Grid item md={4}>
+                  <a
+                    href="https://qube.homeqube.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img
+                      src="./sitenav-buyqube.png"
+                      style={{
+                        objectFit: "contain",
+                        width: "85px",
+                        height: "90px",
+                      }}
+                      alt="HOMEQUBE QUBE"
+                    />
+                  </a>
+                </Grid>
+                <Grid item md={4}>
+                  <a
+                    href="https://dapp.homeqube.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img
+                      src="./sitenav-dapp.png"
+                      style={{
+                        objectFit: "contain",
+                        width: "85px",
+                        height: "90px",
+                      }}
+                      alt="HOMEQUBE dApp"
+                    />
+                  </a>
+                </Grid>
+                <Grid item md={4}>
+                  <a
+                    href="https://dao.homeqube.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img
+                      src="./sitenav-dao.png"
+                      style={{
+                        objectFit: "contain",
+                        width: "85px",
+                        height: "90px",
+                      }}
+                      alt="HOMEQUBE DAO"
+                    />
+                  </a>
+                </Grid>
+                <Grid item md={4}>
+                  <a
+                    href="https://faq.homeqube.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img
+                      src="./sitenav-faq.png"
+                      style={{
+                        objectFit: "contain",
+                        width: "85px",
+                        height: "90px",
+                      }}
+                      alt="HOMEQUBE FAQ"
+                    />
+                  </a>
+                </Grid>
+                <Grid item md={4}>
+                  <a
+                    href="https://homeqube.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img
+                      src="./sitenav-corporate.png"
+                      style={{
+                        objectFit: "contain",
+                        width: "60px",
+                        height: "72px",
+                      }}
+                      alt="HOMEQUBE"
+                    />
+                  </a>
+                </Grid>
+              </Grid>
+            </ClickAwayListener>
+          </Paper>
+        )}
+      </Popper>
+    </>
+  );
+};
 
 const TopNav: React.FC<TopNavProps> = ({ showCurrencyToggle = false }) => {
   const wallet = useAnchorWallet();
@@ -246,6 +395,7 @@ const TopNav: React.FC<TopNavProps> = ({ showCurrencyToggle = false }) => {
                 </ConnectButton>
               )}
             </Wallet>
+            <BentoNavigation />
           </RightContainer>
           <OpenLinksButton
             onClick={() => {
@@ -296,12 +446,11 @@ const RightContainer = styled.div`
   flex: 20%;
   display: flex;
   justify-content: flex-end;
-  padding-top: 3%;
+  align-items: center;
   padding-right: 60px;
 
   li {
     display: flex;
-    padding-top: 5%;
   }
   @media (max-width: 1100px) {
     display: none;
@@ -412,6 +561,7 @@ const DropdownAnchor_Sub = styled.li`
 `;
 
 const Wallet = styled.ul`
+  margin-bottom: 0;
   /* display: flex;
   flex-direction: row;
   justify-content: center;
