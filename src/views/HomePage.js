@@ -185,20 +185,16 @@ function HomePage() {
           <div className="d-sm container-content flex-align-center">
             <div>
               <h1 className="intro">
-                Deconstructing Systems.
-                <br />
-                Decentralizing Power.
-                <br />
-                Democratizing Knowledge.
+              We intend to have a collection of Programmable NFTs for the Built Environment, 3D Printing, and Other Production Protocols, Decentralized Physical Infrastructure (DePIN)
               </h1>
 
-              <p className="intro-sentence mt-4">
+              {/* <p className="intro-sentence mt-4">
                 HomeQube.io is a Solana-based launchpad and marketplace of NFTs
                 for home manufacturing needs. The platform covers home designs,
                 home system algorithms, 3D-printed parts, decors, furniture,
                 fixtures, prototypes, AR, and other homebuilding materials
                 suited to a user’s metaverse and physical homebuilding needs.
-              </p>
+              </p> */}
 
               <div className="intro-btn2 d-sm ">
                 <a href="https://mint.homeqube.io/" className="a-link intro-btn-margin">
@@ -593,10 +589,10 @@ function HomePage() {
         </nav> */}
         {/* <Cards /> */}
       </section>
-      <section className="bg-daoprojects">
+      {/* <section className="bg-daoprojects">
         <DaoProjects />
-        {/* <raffleBanner /> */}
-      </section>
+        <raffleBanner /> 
+      </section> */}
 
       <section className="bg-propertyFL">
         <PropertyFL />

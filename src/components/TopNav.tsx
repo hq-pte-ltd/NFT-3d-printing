@@ -17,7 +17,7 @@ interface TopNavProps {
   showCurrencyToggle?: boolean;
 }
 
-const ROUTES = [{ url: RouteName.ClaimQubes, name: "Claim Qubes" }];
+const ROUTES = [] as any[];
 
 const DROP_DOWN_MENU = [
   { url: RouteName.HomeDesignFilter, name: "Community Collection" },
@@ -323,18 +323,6 @@ const TopNav: React.FC<TopNavProps> = ({ showCurrencyToggle = false }) => {
                       >
                         <MenuItem>
                           <a
-                            href="https://www.homeqube.io/"
-                            key={"homeqube"}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="qube-text"
-                          >
-                            HOMEQUBE.IO{" "}
-                            <i className="fas fa-solid fa-arrow-right mx-2" />
-                          </a>
-                        </MenuItem>
-                        <MenuItem>
-                          <a
                             href="https://www.homeqube.com/"
                             key={"homeqube"}
                             target="_blank"
@@ -347,13 +335,37 @@ const TopNav: React.FC<TopNavProps> = ({ showCurrencyToggle = false }) => {
                         </MenuItem>
                         <MenuItem>
                           <a
-                            href="https://www.homeqube.ai/"
-                            key={"homeqube"}
+                            href="https://www.shop.homeqube.com/"
+                            key={"shop"}
                             target="_blank"
                             rel="noreferrer"
                             className="qube-text"
                           >
-                            HOMEQUBE.AI{" "}
+                            SHOP.HOMEQUBE.COM{" "}
+                            <i className="fas fa-solid fa-arrow-right mx-3" />
+                          </a>
+                        </MenuItem>
+                        <MenuItem>
+                          <a
+                            href="https://www.qube.homeqube.com/"
+                            key={"qube"}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="qube-text"
+                          >
+                            QUBE.HOMEQUBE.COM{" "}
+                            <i className="fas fa-solid fa-arrow-right mx-3" />
+                          </a>
+                        </MenuItem>
+                        <MenuItem>
+                          <a
+                            href="https://www.dapp.homeqube.com/"
+                            key={"dapp"}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="qube-text"
+                          >
+                            DAPP.HOMEQUBE.COM{" "}
                             <i className="fas fa-solid fa-arrow-right mx-3" />
                           </a>
                         </MenuItem>
@@ -368,14 +380,6 @@ const TopNav: React.FC<TopNavProps> = ({ showCurrencyToggle = false }) => {
           <RightContainer>
             {showCurrencyToggle && <CurrencyToggle />}
             <li>
-              <a
-                href="https://t.me/homeqube"
-                key={"telegram"}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <img src="/telegram2.svg" alt="" />
-              </a>
               <a
                 href="https://discord.gg/JhQXmjm59e"
                 key={"telegram"}
