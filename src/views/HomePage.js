@@ -594,10 +594,10 @@ function HomePage() {
         <raffleBanner /> 
       </section> */}
 
-      <section className="bg-propertyFL">
+      {/* <section className="bg-propertyFL">
         <PropertyFL />
-        {/* <raffleBanner /> */}
-      </section>
+        <raffleBanner />
+      </section> */}
 
       {/* <section className="text-center content-eco1-bg p-5">
         <div className="col-md eco-1-title">

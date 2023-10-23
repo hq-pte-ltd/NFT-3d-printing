@@ -15,9 +15,42 @@ function FooterWeb() {
             <div className="d-flex align-items-center">
               {/* <img src={homequbelogo} alt="" />
               <span className="text-light io-text-logo align-self-center">.IO</span> */}
-              <img alt="" src="/Rework-Logo_3.svg" />
+              <div
+                style={{
+                  color: "white",
+                  whiteSpace: "nowrap",
+                  fontSize: "24px",
+                  fontWeight: 600,
+                  textTransform: "uppercase",
+                }}
+              >
+                <img
+                  alt=""
+                  src="/logo.png"
+                  style={{
+                    marginRight: "1rem",
+                    height: "3rem",
+                  }}
+                />
+                NFT Marketplace for DePIN
+                <span
+                  style={{
+                    marginLeft: ".8rem",
+                    borderRadius: "8px",
+                    background: "black",
+                    color: "greenyellow",
+                  }}
+                >
+                  (Beta)
+                </span>
+              </div>
             </div>
-            <span className="text-uppercase text-tag-line-footer align-self-center" hidden>Number 1 NFT store comparison is opensea</span>
+            <span
+              className="text-uppercase text-tag-line-footer align-self-center"
+              hidden
+            >
+              Number 1 NFT store comparison is opensea
+            </span>
           </div>
           <div class="container mt-5">
             <div class="align-items-start mb-3 footer-content-container">
@@ -126,7 +159,9 @@ function FooterWeb() {
               </div>
 
               <div className="footer-item-cont">
-                <div class=" new-footer-headline text-uppercase mb-2">Legal</div>
+                <div class=" new-footer-headline text-uppercase mb-2">
+                  Legal
+                </div>
                 <div class=" new-footer-text text-uppercase mb-2">
                   <a
                     href="https://www.qube.homeqube.com/terms-of-use"
@@ -144,10 +179,9 @@ function FooterWeb() {
                     Privacy policy
                   </a>
                 </div>
-
               </div>
 
-              <div className="footer-item-cont mb-2" >
+              <div className="footer-item-cont mb-2">
                 <div class=" new-footer-headline-2 text-uppercase  mb-2" hidden>
                   Connect with us
                 </div>
@@ -222,10 +256,13 @@ function FooterWeb() {
                   about@homeqube.com
                 </div>
 
-                <div class="text-nowrap new-footer-text text-uppercase  mb-2" hidden>
+                <div
+                  class="text-nowrap new-footer-text text-uppercase  mb-2"
+                  hidden
+                >
                   Homeqube Pte. Ltd.™
                 </div>
-                
+
                 <div class=" new-footer-text text-uppercase mb-2" hidden>
                   Homeqube, Inc.
                 </div>
@@ -233,9 +270,7 @@ function FooterWeb() {
                 <div class=" new-footer-text text-uppercase  mb-2" hidden>
                   Homqube Dao, LLC
                 </div>
-
               </div>
-
             </div>
 
             {/* <div class="row align-items-start mb-2">

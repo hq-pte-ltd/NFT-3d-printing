@@ -17,7 +17,7 @@ const DROP_DOWN_MENU = [
     { url: RouteName.multipleCurrencyMarketplace, name: "Dao Projects" },
 ];
 
-const ROUTES = [{ url: RouteName.ClaimQubes, name: "Claim Qubes" }];
+const ROUTES = [];
 
 const MobileNavigation = ({isOpen, setIsOpen}) =>{
     const wallet = useAnchorWallet();
@@ -133,7 +133,7 @@ const MobileNavigation = ({isOpen, setIsOpen}) =>{
                         <Link to={item.url}>{item.name}</Link>
                         </li>
                     ))}
-                    <DropdownAnchor_Sub
+                    {/* <DropdownAnchor_Sub
                         ref={anchorRef_sub}
                         onClick={handleToggle_sub}
                     >
@@ -191,12 +191,12 @@ const MobileNavigation = ({isOpen, setIsOpen}) =>{
                             <i className="icon-down fas fa-chevron-down" />
                         </div>
                         }
-                    </DropdownAnchor_Sub>
+                    </DropdownAnchor_Sub> */}
                 </Menu>
             </CenterContainer>
             <RightContainer>
                 <li>
-                <a
+                {/* <a
                     href="https://t.me/homeqube"
                     key={"telegram"}
                     target="_blank"
@@ -211,7 +211,7 @@ const MobileNavigation = ({isOpen, setIsOpen}) =>{
                     rel="noreferrer"
                 >
                     <img src="/discord2.svg" alt="" className="mx-3" />
-                </a>
+                </a> */}
                 </li>
                 <Wallet>
                 {wallet ? (

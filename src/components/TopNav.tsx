@@ -247,8 +247,34 @@ const TopNav: React.FC<TopNavProps> = ({ showCurrencyToggle = false }) => {
         <NavbarInnerContainer>
           <LeftContainer>
             <Logo>
-              <Link to={RouteName.HomePage}>
-                <img alt="" src="/Rework-Logo_3.svg" />
+              <Link
+                to={RouteName.HomePage}
+                style={{
+                  color: "white",
+                  whiteSpace: "nowrap",
+                  fontSize: "24px",
+                  fontWeight: 600,
+                  textTransform: "uppercase",
+                }}
+              >
+                <img
+                  alt=""
+                  src="/logo.png"
+                  style={{
+                    marginRight: "1rem",
+                  }}
+                />
+                NFT Marketplace for DePIN
+                <span
+                  style={{
+                    marginLeft: ".8rem",
+                    borderRadius: "8px",
+                    background: "black",
+                    color: "greenyellow",
+                  }}
+                >
+                  (Beta)
+                </span>
               </Link>
             </Logo>
           </LeftContainer>
@@ -303,7 +329,7 @@ const TopNav: React.FC<TopNavProps> = ({ showCurrencyToggle = false }) => {
                   <Link to={item.url}>{item.name}</Link>
                 </li>
               ))}
-              <DropdownAnchor_Sub
+              {/* <DropdownAnchor_Sub
                 ref={anchorRef_sub}
                 onClick={handleToggle_sub}
               >
@@ -373,7 +399,7 @@ const TopNav: React.FC<TopNavProps> = ({ showCurrencyToggle = false }) => {
                     </ClickAwayListener>
                   </Paper>
                 </Popper>
-              </DropdownAnchor_Sub>
+              </DropdownAnchor_Sub> */}
             </Menu>
           </CenterContainer>
 
