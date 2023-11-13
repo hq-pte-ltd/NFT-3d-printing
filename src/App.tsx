@@ -51,6 +51,7 @@ import AllNftFilter from "./views/AllNfts";
 import NotFound from "./components/NotFound/NotFound";
 import Footer2 from "./components/Footer2";
 import ScrollToTop from "./ScrollToTop";
+import AIChatBot from "./components/AIChatBot/AIChatBot";
 require("@solana/wallet-adapter-react-ui/styles.css");
 
 const theme = createTheme({
@@ -299,6 +300,8 @@ const App = () => {
                           }
                         />
                       </Routes>
+
+                      <AIChatBot/>
                     </MainContainer>
                   </ScrollToTop>
                 </main>
