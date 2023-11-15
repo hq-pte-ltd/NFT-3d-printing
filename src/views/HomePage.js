@@ -197,9 +197,9 @@ function HomePage() {
               </p> */}
 
               <div className="intro-btn2 d-sm ">
-                <a href="https://mint.homeqube.io/" className="a-link intro-btn-margin">
+                <a href="https://mint.homeqube.com/" className="a-link intro-btn-margin">
                   <button
-                    onclick="window.open('https://mint.homeqube.io/')"
+                    onclick="window.open('https://mint.homeqube.com/')"
                     className="button2 btn btn-lg rounded-pill"
                   >
                     Mint your nft
