@@ -316,6 +316,9 @@ export const Orders: React.FC<OrdersProps> = ({
               <PoweredBy />
             </div>
           </div>
+          <div className="mobile-candy-nav">
+            
+          </div>
         </div>
       </div>
     );

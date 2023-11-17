@@ -27,3 +27,17 @@
     border-radius: 100px;
     color: #FFFFFF;
 }
+
+.sort-container-mobile {
+    display: none;
+}
+
+@media (max-width: 1030px) {
+    .sort-container {
+        display: none;
+    }
+
+    .sort-container-mobile {
+        display: grid;
+    }
+}

@@ -37,12 +37,12 @@ function RaffleDraw() {
               Transfer fees are included
             </p>
             <div className="pt-3 button-raffle-cont">
-                <NavLink to="/home-products" className="a-link">
-                  <button className="button1 btn btn-lg rounded-pill secure-entry-btn" type="button">
-                    Secure your entry
-                    <img src="/icons8-right-24.png" className="ms-1" alt="image" />
-                  </button>
-                </NavLink>
+              <NavLink to="/home-products" className="a-link">
+                <button className="button1 btn btn-lg rounded-pill secure-entry-btn" type="button">
+                  Secure your entry
+                  <img src="/icons8-right-24.png" className="ms-1" alt="icon" />
+                </button>
+              </NavLink>
             </div>
           </div>
         </div>

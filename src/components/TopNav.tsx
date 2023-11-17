@@ -28,12 +28,30 @@ const DROP_DOWN_MENU = [
 const BentoNavigation: React.FC = () => {
   const buttonRef = useRef<HTMLButtonElement>(null);
   const [open, setOpen] = useState(false);
+
+  const closePopover = () => {
+    setOpen(false);
+  };
+
+  // Add an event listener to close the popover when resizing the screen
+  useEffect(() => {
+    function handleResize() {
+      closePopover();
+    }
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <>
       <Button ref={buttonRef} onClick={() => setOpen(true)}>
         <svg
-          width="58"
-          height="53"
+          width="48"
+          height="43"
           viewBox="0 0 148 153"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -49,20 +67,35 @@ const BentoNavigation: React.FC = () => {
         anchorEl={buttonRef.current}
         role={undefined}
         transition
-        disablePortal
+        disablePortal={false}
+        modifiers={{
+          preventOverflow: {
+            enabled: true,
+            boundariesElement: 'viewport',
+          },
+        }}
+        style={{
+          marginRight: "30px",
+          marginTop: "30px",
+        }}
       >
         {({ TransitionProps, placement }) => (
           <Paper
             style={{
-              width: "360px",
-              height: "360px",
+              width: "320px",
+              height: "351px",
               backgroundColor: "rgb(41, 44, 53)",
-              padding: "2rem",
+              padding: "1rem",
+              borderRadius: "1rem",
+              zIndex: "999",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
             }}
           >
             <ClickAwayListener onClickAway={() => setOpen(false)}>
-              <Grid container spacing={2}>
-                <Grid item md={4}>
+              <Grid className="sitenav-basecard">
+                <Grid item className="sitenav-grid">
                   <a
                     href="https://shop.homeqube.com/"
                     target="_blank"
@@ -79,7 +112,7 @@ const BentoNavigation: React.FC = () => {
                     />
                   </a>
                 </Grid>
-                <Grid item md={4}>
+                <Grid item className="sitenav-grid">
                   <a
                     href="https://nft.homeqube.com/"
                     target="_blank"
@@ -96,7 +129,7 @@ const BentoNavigation: React.FC = () => {
                     />
                   </a>
                 </Grid>
-                <Grid item md={4}>
+                <Grid item className="sitenav-grid">
                   <a
                     href="https://qube.homeqube.com/"
                     target="_blank"
@@ -113,7 +146,7 @@ const BentoNavigation: React.FC = () => {
                     />
                   </a>
                 </Grid>
-                <Grid item md={4}>
+                <Grid item className="sitenav-grid">
                   <a
                     href="https://dapp.homeqube.com/"
                     target="_blank"
@@ -130,7 +163,7 @@ const BentoNavigation: React.FC = () => {
                     />
                   </a>
                 </Grid>
-                <Grid item md={4}>
+                <Grid item className="sitenav-grid">
                   <a
                     href="https://dao.homeqube.com/"
                     target="_blank"
@@ -147,7 +180,7 @@ const BentoNavigation: React.FC = () => {
                     />
                   </a>
                 </Grid>
-                <Grid item md={4}>
+                <Grid item className="sitenav-grid">
                   <a
                     href="https://faq.homeqube.com/"
                     target="_blank"
@@ -164,18 +197,18 @@ const BentoNavigation: React.FC = () => {
                     />
                   </a>
                 </Grid>
-                <Grid item md={4}>
+                <Grid item className="sitenav-grid">
                   <a
                     href="https://homeqube.com/"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     <img
+                      height={90}
+                      width={85}
                       src="./sitenav-corporate.png"
                       style={{
                         objectFit: "contain",
-                        width: "60px",
-                        height: "72px",
                       }}
                       alt="HOMEQUBE"
                     />
@@ -244,6 +277,28 @@ const TopNav: React.FC<TopNavProps> = ({ showCurrencyToggle = false }) => {
   return (
     <>
       <NavbarContainer>
+        <MobileLogoTop>
+          <Logo>
+            <Link
+              to={RouteName.HomePage}
+              style={{
+                color: "white",
+                whiteSpace: "nowrap",
+                fontSize: "24px",
+                fontWeight: 600,
+                textTransform: "uppercase",
+              }}
+            >
+              <img
+                alt=""
+                src="/nav-logo.png"
+                style={{
+                  marginRight: "1rem",
+                }}
+              />
+            </Link>
+          </Logo>
+        </MobileLogoTop>
         <NavbarInnerContainer>
           <LeftContainer>
             <Logo>
@@ -258,8 +313,9 @@ const TopNav: React.FC<TopNavProps> = ({ showCurrencyToggle = false }) => {
                 }}
               >
                 <img
+                  className="web-logo"
                   alt=""
-                  src="/logo.png"
+                  src="/nav-logo.png"
                   style={{
                     marginRight: "1rem",
                   }}
@@ -267,7 +323,7 @@ const TopNav: React.FC<TopNavProps> = ({ showCurrencyToggle = false }) => {
                 NFT Marketplace for DePIN
                 <span
                   style={{
-                    marginLeft: ".8rem",
+                    marginLeft: ".4rem",
                     borderRadius: "8px",
                     background: "black",
                     color: "greenyellow",
@@ -427,17 +483,21 @@ const TopNav: React.FC<TopNavProps> = ({ showCurrencyToggle = false }) => {
             </Wallet>
             <BentoNavigation />
           </RightContainer>
-          <OpenLinksButton
-            onClick={() => {
-              setExtendNavbar(!extendNavbar);
-            }}
-          >
-            {extendNavbar ? (
-              <i className="fas fa fa-solid fa-xmark fa-2xl" />
-            ) : (
-              <i className="fas fa fa-solid fa-bars fa-2xl" />
-            )}
-          </OpenLinksButton>
+
+          <MobileContainer>
+            <BentoNavigation />
+            <OpenLinksButton
+              onClick={() => {
+                setExtendNavbar(!extendNavbar);
+              }}
+            >
+              {extendNavbar ? (
+                <i className="fas fa fa-solid fa-xmark fa-2xl" />
+              ) : (
+                <i className="fas fa fa-solid fa-bars fa-2xl" />
+              )}
+            </OpenLinksButton>
+          </MobileContainer>
         </NavbarInnerContainer>
       </NavbarContainer>
       <MobileNavigation isOpen={extendNavbar} setIsOpen={setExtendNavbar} />
@@ -447,9 +507,11 @@ const TopNav: React.FC<TopNavProps> = ({ showCurrencyToggle = false }) => {
 
 const NavbarContainer = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   background-color: #0a0909;
   backdrop-filter: blur(5px);
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
   z-index: 998;
 `;
 
@@ -477,7 +539,7 @@ const RightContainer = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding-right: 60px;
+  padding-right: 5%;
 
   li {
     display: flex;
@@ -485,26 +547,37 @@ const RightContainer = styled.div`
   @media (max-width: 1100px) {
     display: none;
   }
+  @media (min-width: 1100px) {
+    div {
+      display: none;
+    }
+  }
 `;
 
 const OpenLinksButton = styled.button`
-  width: 70px;
-  height: 30px;
-  margin-block: auto;
-  margin-right: 5%;
   background: none;
   border: none;
   color: white;
   z-index: 999;
+  align-items: center;
+  justify-content: center;
   @media (min-width: 1100px) {
     display: none;
+  }
+  i {
+    font-size: 2em !important;
   }
 `;
 
 const NavbarInnerContainer = styled.div`
   width: 100%;
-  height: 10rem;
+  height: auto;
   display: flex;
+
+  @media (max-width: 680px) {
+    align-items: center !important;
+    justify-content: center !important;
+  }
 `;
 const NavbarExtendedContainer = styled.div`
   display: flex;
@@ -610,8 +683,8 @@ const ConnectButton = styled(WalletMultiButton)`
   /* margin: 0 auto;
   margin-top: 1.5rem !important; */
   font-family: "Rajdhani", sans-serif !important;
-  width: 169px;
-  height: 56px;
+  width: 165px;
+  height: 48px;
   color: #040f24;
   font-style: normal;
   font-weight: 700;
@@ -619,13 +692,100 @@ const ConnectButton = styled(WalletMultiButton)`
   text-align: center;
   text-transform: uppercase;
 `;
+const MobileContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding-right: 5%;
+  @media (min-width: 1100px) {
+    display: none;
+  }
+`;
+
+const MobileLogoTop = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 1rem;
+  @media (min-width: 680px) {
+    display: none;
+  }
+`;
 
 const Logo = styled.div`
   /* flex: 0 0 auto; */
   /* margin-right: 5rem; */
+  a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
 
   img {
     height: 3rem;
+    cursor: pointer;
+  }
+
+  .web-logo {
+    display: block;
+  }
+
+  @media (max-width: 1150px) {
+    
+    a {
+      font-size: 21px !important;
+    }
+  }
+
+  @media (max-width: 1099px) {
+    
+    a {
+      font-size: 22px !important;
+    }
+
+    img {
+      height: 2.5rem;
+    }
+  }
+  
+  @media (max-width: 680px) {
+    
+    .web-logo {
+      display: none;
+    }
+
+    a {
+      font-size: 22px !important;
+      flex-direction: row;
+      div {
+        display: flex;
+        flex-direction: row;
+
+      }
+      img {
+        margin-bottom: 1rem;
+      }
+    }
+    
+    span {
+          vertical-align: super;
+          font-size: smaller;
+          font-size: 14px
+        }
+  }
+
+  @media (max-width: 480px) {
+    a {
+      font-size: 20px !important;
+    }
+  }
+  @media (max-width: 450px) {
+    a {
+      font-size: 18px !important;
+    }
   }
 `;
 
@@ -640,13 +800,13 @@ const Menu = styled.ul`
   gap: 6%; */
 
   li {
-    margin: 0 40px;
+    margin: 0 30px;
 
     color: #fff;
     font-family: "Rajdhani";
     font-style: normal;
     font-weight: 700;
-    font-size: 18px;
+    font-size: 22px;
 
     a {
       color: #fff;

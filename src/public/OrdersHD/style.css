@@ -4,5 +4,15 @@
     flex-direction: column;
     padding-block: 48px;
     row-gap: 48px;
-    
+    padding-top: 20px !important;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .candy-container {
+        margin-left: 1rem !important;
+        margin-right: 1rem !important;
+    }
 }
