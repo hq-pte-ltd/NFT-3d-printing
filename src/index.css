@@ -3595,7 +3595,7 @@ h4 {
   }
 
   .footer {
-    position: fixed !important;
+    position: relative !important;
     bottom: 0 !important;
   }
 
