@@ -185,7 +185,7 @@ function HomePage() {
           <div className="d-sm container-content flex-align-center">
             <div>
               <h1 className="intro">
-              We intend to have a collection of Programmable NFTs for the Built Environment, 3D Printing, and Other Production Protocols, Decentralized Physical Infrastructure (DePIN)
+                We intend to have a collection of Programmable NFTs for the Built Environment, 3D Printing, and Other Production Protocols, Decentralized Physical Infrastructure (DePIN)
               </h1>
 
               {/* <p className="intro-sentence mt-4">
@@ -197,8 +197,9 @@ function HomePage() {
               </p> */}
 
               <div className="intro-btn2 d-sm ">
-                <a href="https://mint.homeqube.com/" className="a-link intro-btn-margin">
+                <a href="https://mint.homeqube.com/" className="a-link intro-btn-margin" target="_blank" rel="noopener noreferrer">
                   <button
+                    onclick="window.open('https://mint.homeqube.com/')"
                     onclick="window.open('https://mint.homeqube.com/')"
                     className="button2 btn btn-lg rounded-pill"
                   >
@@ -214,7 +215,7 @@ function HomePage() {
                     <img
                       src="/icons8-right-24.png"
                       className="p-1"
-                      alt="image"
+                      alt=""
                     />
                   </button>
                 </NavLink>
@@ -572,7 +573,7 @@ function HomePage() {
 
       <section className="text-center bg-nft-collection">
         <LandingPage />
-        
+
         <section>
           {/* <div className="col-md eco-1-title">
             <p className="ai-title-home">NFT COLLECTIONS</p>

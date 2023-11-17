@@ -14,7 +14,7 @@ const AIChatBotContainer = styled.div`
   position: fixed;
   bottom: 1rem;
   right: 0.5rem;
-  z-index: 1001;
+  z-index: 1003;
   @media screen and (max-width: 1390px) {
     bottom: 3.8rem;
   }
@@ -33,7 +33,7 @@ const AIChatBotIFrame = styled.iframe<{ $collapsed: boolean }>`
   width: min(400px, 100dvw);
   height: min(100dvh, 600px);
   display: ${(props) => (props.$collapsed ? "block" : "none")};
-  z-index: 1000;
+  z-index: 1002;
   @media screen and (max-width: 1390px) {
     bottom: 7rem;
   }

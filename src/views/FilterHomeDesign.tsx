@@ -33,6 +33,18 @@ const HomeDesignFilter: React.FC = () => {
           <NavLink to="/just-for-fun">JUST-FOR-FUN (JFF)</NavLink>
         </li>
       </nav>
+      <nav className="candy-orders-filter-mobile menu text-uppercase pb-3 pt-5">
+        <li className="nav-item dropdown">
+          <NavLink to="/home-designs" className="nav-link active" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Home Generative Designs and Algorithms <i className="fas fa-caret-down"></i>
+          </NavLink>
+          <div className="dropdown-menu dropdown-menu-end mt-2 p-3" aria-labelledby="navbarDropdown">
+            <NavLink to="/home-designs" className="dropdown-item" style={{ whiteSpace: 'normal', overflow: 'hidden' }}>Home Generative Designs and Algorithms</NavLink>
+            <NavLink to="/home-products" className="dropdown-item" style={{ whiteSpace: 'normal', overflow: 'hidden' }}>Home Products</NavLink>
+            <NavLink to="/just-for-fun" className="dropdown-item" style={{ whiteSpace: 'normal', overflow: 'hidden' }}>JUST-FOR-FUN (JFF)</NavLink>
+          </div>
+        </li>
+      </nav>
       <DesContainer>
         <Stat
           candyShop={candyShop}

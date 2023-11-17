@@ -67,7 +67,7 @@ const MobileNavigation = ({isOpen, setIsOpen}) =>{
                     <LeftContainer>
                         <Logo>
                             <Link to={RouteName.HomePage}>
-                                <img alt="" src="/Rework-Logo.svg" />
+                                <img alt="" src="/nav-Logo.png" />
                             </Link>
                         </Logo>
                     </LeftContainer>

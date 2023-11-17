@@ -12,6 +12,7 @@ import { removeDuplicate } from "../../utils/array";
 import { LoadStatus } from "../../constant";
 import "../../style/order-filter.less";
 import "./style.css";
+import { NavLink } from "react-router-dom";
 
 interface CollectionFilterProps {
   onChange: (
@@ -121,7 +122,7 @@ export const CollectionFilter: React.FC<CollectionFilterProps> = ({
   if (Array.isArray(filters)) {
     return (
       <>
-      {/* <div className="collapse navbar-collapse" id="navmenu">
+        {/* <div className="collapse navbar-collapse" id="navmenu">
                 <ul className="navbar-nav">
                     <li className="nav-item ms-3">
                         <a href="pipeline.html" className="nav-link">
@@ -132,28 +133,69 @@ export const CollectionFilter: React.FC<CollectionFilterProps> = ({
                     </li>
                 </ul>
       </div> */}
-      
+
         <div className="sort-container text-uppercase">
-        {filteredList.map((filter) => {
-          return (
-            <>
-              <input type="radio" name={filter.name} id={filter.collectionId} checked={selectedManual?.collectionId === filter.collectionId}
-                key={filter.name}
-                className="btn-check ms-3"
-                onClick={onChange(filter, "manual")}
-              />
-              <label className={
+          {filteredList.map((filter) => {
+            return (
+              <>
+                <input type="radio" name={filter.name} id={filter.collectionId} checked={selectedManual?.collectionId === filter.collectionId}
+                  key={filter.name}
+                  className="btn-check ms-3"
+                  onClick={onChange(filter, "manual")}
+                />
+                <label className={
                   selectedManual?.collectionId === filter.collectionId
                     ? "selected sort px-4 py-3"
                     : "sort px-4 py-3"
                 } htmlFor={filter.collectionId}>
-              {filter.name}   {filter.qubeClaims}
-              </label>
-              
-            </>
-          );
-        })}
+                  {filter.name}   {filter.qubeClaims}
+                </label>
+
+              </>
+            );
+          })}
         </div>
+
+        <div className="dropdown sort-container-mobile w-100">
+          <button
+            className="btn btn-secondary dropdown-toggle w-100 d-block"
+            type="button"
+            id="dropdownMenuButton"
+            data-bs-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+            style={{ fontSize: "20px", fontWeight: "bold", textTransform: "uppercase", width: "100%", whiteSpace: "break-spaces",}}
+          >
+            {selectedManual ? `${selectedManual.name} ${selectedManual.qubeClaims}` : "Select an option"}
+          </button>
+          <div className="dropdown-menu" aria-labelledby="dropdownMenuButton" style={{ zIndex: "1005", }}>
+            {filteredList.map((filter) => (
+              <div key={filter.collectionId} className="dropdown-item w-100">
+                <input
+                  type="radio"
+                  name="filterOption"
+                  id={filter.collectionId}
+                  checked={selectedManual?.collectionId === filter.collectionId}
+                  className="btn-check ms-3 w-100"
+                  style={{ width: "100%",  }}
+                  onClick={() => onChange(filter, "manual")}
+                />
+                <label
+                  htmlFor={filter.collectionId}
+                  className={
+                    selectedManual?.collectionId === filter.collectionId
+                      ? "selected sort px-4 py-3 nav-link active w-100"
+                      : "sort px-4 py-3"
+                  }
+                  style={{ width: "100%", whiteSpace: "break-spaces", }}
+                >
+                  {filter.name} {filter.qubeClaims}
+                </label>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* {search && <Search onSearch={onSearch} placeholder="Search collections" />} */}
         {/* {selectedManual ? (
             <div className="candy-filter-selected-name">
@@ -166,7 +208,7 @@ export const CollectionFilter: React.FC<CollectionFilterProps> = ({
               All
             </li>
           )} */}
-        
+
       </>
     );
   }
@@ -198,9 +240,8 @@ export const CollectionFilter: React.FC<CollectionFilterProps> = ({
         {loading === LoadStatus.Loading && <Processing />}
         <button
           disabled={disableLoadMore}
-          className={`candy-filter-load ${
-            disableLoadMore ? "candy-filter-load-disable" : ""
-          }`}
+          className={`candy-filter-load ${disableLoadMore ? "candy-filter-load-disable" : ""
+            }`}
           onClick={() => fetchOption(offset)}
         >
           + Load more
