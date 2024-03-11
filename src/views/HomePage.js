@@ -200,7 +200,6 @@ function HomePage() {
                 <a href="https://mint.homeqube.com/" className="a-link intro-btn-margin" target="_blank" rel="noopener noreferrer">
                   <button
                     onclick="window.open('https://mint.homeqube.com/')"
-                    onclick="window.open('https://mint.homeqube.com/')"
                     className="button2 btn btn-lg rounded-pill"
                   >
                     Mint your nft
