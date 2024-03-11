@@ -3638,3 +3638,43 @@ h4 {
   grid-template-columns: repeat(3, 1fr) !important;
   grid-gap: 1rem 1rem !important;
 }
+
+
+.underconst-img {
+  height: 120px;
+  width: 300px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.underconst-title {
+  font-weight: 700;
+  font-size: 4rem;
+}
+
+@media (min-width: 750px) {
+  .underconst-title {
+    font-weight: 700;
+    font-size: 7rem;
+  }
+
+  .underconst-img {
+    height: 120px;
+    width: 450px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+  }
+}
+
+.underconst-logotitle {
+  color: white;
+  flex-wrap: nowrap;
+  font-size: 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 0;
+}
